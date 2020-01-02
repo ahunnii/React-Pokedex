@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
 
@@ -10,19 +9,25 @@ constructor(){
   super();
 
   this.state = {
-    string: 'Pokedex'
-  }
+    pokemon: []
+  };
 }
 
+componentDidMount(){
+  fetch('https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/pokedex.json')
+  .then(response => response.json())
+  .then(pokes => this.setState({pokemon:pokes}))
+
+}
 
   render(){
     return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{this.state.string}</p>
-        <button onClick={() => this.setState({string: 'Hello World'})}>Change Text</button>
-      </header>
+        {
+          this.state.pokemon.slice(0, 19).map(pokemon => 
+            (<h1 key={pokemon.id }> {pokemon.name.english}</h1>)
+          )
+        }
     </div>
     );
   }
