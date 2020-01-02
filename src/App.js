@@ -9,7 +9,8 @@ constructor(){
   super();
 
   this.state = {
-    pokemon: []
+    pokemon: [],
+    searchText: " "
   };
 }
 
@@ -23,9 +24,12 @@ componentDidMount(){
   render(){
     return(
     <div className="App">
-    <EntryList pokemon ={this.state.pokemon}>        
-
-    </EntryList>
+      <input 
+        type="search" 
+        placeholder="Search Pokemon" 
+        onChange={e => this.setState({searchText: e.target.value})}
+      />
+      <EntryList pokemon ={this.state.pokemon}/>
 
     </div>
     );
