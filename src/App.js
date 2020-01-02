@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import {EntryList} from './components/entry-list/entry-list.component.jsx';
 
 
 
@@ -23,11 +23,12 @@ componentDidMount(){
   render(){
     return(
     <div className="App">
-        {
-          this.state.pokemon.slice(0, 19).map(pokemon => 
-            (<h1 key={pokemon.id }> {pokemon.name.english}</h1>)
-          )
-        }
+    <EntryList>        {
+      this.state.pokemon.slice(0, 19).map(pokemon => 
+        (<h1 key={pokemon.id }> {pokemon.name.english}</h1>)
+      )
+    }</EntryList>
+
     </div>
     );
   }
