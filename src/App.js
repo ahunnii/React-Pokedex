@@ -23,11 +23,9 @@ componentDidMount(){
   render(){
     return(
     <div className="App">
-    <EntryList>        {
-      this.state.pokemon.slice(0, 19).map(pokemon => 
-        (<h1 key={pokemon.id }> {pokemon.name.english}</h1>)
-      )
-    }</EntryList>
+    <EntryList pokemon ={this.state.pokemon}>        
+
+    </EntryList>
 
     </div>
     );
