@@ -21,7 +21,7 @@ componentDidMount(){
   .then(pokes => this.setState({pokemon:pokes}))
 
 }
-handleChange = (e) =>  {
+handleChange = (e) => {
   this.setState({searchText: e.target.value})
 }
 
@@ -30,7 +30,7 @@ handleChange = (e) =>  {
     const filteredPokemons = pokemon.filter(poke => poke.name.english.toLowerCase().includes(searchText.toLowerCase()))
     return(
     <div className="App">
-
+      <h1>Pokedex</h1>
       <SearchBox placeholder="Search Pokemon" 
       handleChange={this.handleChange}/>
       <EntryList pokemon ={filteredPokemons}/>
